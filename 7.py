@@ -14,27 +14,27 @@
 #
 # Проверить работу примера, создав экземпляр и вызвав описанный метод.
 # """
-# import time
-#
-# a = time.time()
-#
-#
-# class TrafficLight:
-#     __color = "Red"
-#
-#     def running(self):
-#         print(self.__color)
-#         time.sleep(7)
-#         __color = "Yellow"
-#         print(__color)
-#         time.sleep(2)
-#         __color = "Green"
-#         print(__color)
-#         time.sleep(5)
-#
-#
-# c = TrafficLight()
-# c.running()
+import time
+
+a = time.time()
+
+
+class TrafficLight:
+    __color = "Red"
+
+    def running(self):
+        print(self.__color)
+        time.sleep(7)
+        __color = "Yellow"
+        print(__color)
+        time.sleep(2)
+        __color = "Green"
+        print(__color)
+        time.sleep(5)
+
+
+c = TrafficLight()
+c.running()
 
 # """
 # Задание 2.
@@ -54,22 +54,22 @@
 #
 # Например: 20м*5000м*25кг*0.05м = 125000 кг = 125 т
 # """
-# class Road:
-#     def __init__(self, _length, _width, mass, tol):
-#         self._length = _length
-#         self._width = _width
-#         self.mass = mass
-#         self.tol = tol
-#
-#     def asf(self):
-#         res = (self._length * self._width * self.mass) * self.tol
-#         return res
-#
-#
-# a = Road(float(input("Введите длину: ")), float(input("Введите ширину: ")), float(input("Введите массу: ")),
-#          float(input("Введите толщину: ")))
-# b = a.asf()
-# print(int(b // 1000), "т")
+class Road:
+    def __init__(self, _length, _width, mass, tol):
+        self._length = _length
+        self._width = _width
+        self.mass = mass
+        self.tol = tol
+
+    def asf(self):
+        res = (self._length * self._width * self.mass) * self.tol
+        return res
+
+
+sumy = Road(float(input("Введите длину: ")), float(input("Введите ширину: ")), float(input("Введите массу: ")),
+         float(input("Введите толщину: ")))
+sumy_p = sumy.asf()
+print(int(sumy_p // 1000), "т")
 
 # """
 # Задание 3.
@@ -91,27 +91,27 @@
 
 
 #
-# class Worker:
-#     def __init__(self, name: str, surname: str, position: str, wage: int, bonus: int):
-#         self.name = name
-#         self.surname = surname
-#         self.position = position
-#         self._income = {"wage": wage, "bonus": bonus}
-#
-#
-# class Position(Worker):
-#
-#     def get_full_name(self):
-#         print(f"Имя: {self.name}, Фамилия: {self.surname}")
-#
-#     def get_total_income(self):
-#         print(f"Общий доход равен: {sum(self._income.values())}")
-#
-#
-# a = Position("Джонотан", "Джостар", "Президент компании", 300000, 100000)
-# a.get_full_name()
-# print(f"Должность: {a.position}")
-# a.get_total_income()
+class Worker:
+    def __init__(self, name: str, surname: str, position: str, wage: int, bonus: int):
+        self.name = name
+        self.surname = surname
+        self.position = position
+        self._income = {"wage": wage, "bonus": bonus}
+
+
+class Position(Worker):
+
+    def get_full_name(self):
+        print(f"Имя: {self.name}, Фамилия: {self.surname}")
+
+    def get_total_income(self):
+        print(f"Общий доход равен: {sum(self._income.values())}")
+
+
+a = Position("Джонотан", "Джостар", "Президент компании", 300000, 100000)
+a.get_full_name()
+print(f"Должность: {a.position}")
+a.get_total_income()
 
 # """
 # Задание 4.
@@ -134,25 +134,26 @@
 # Далее реализовать перегрузку метода add() для реализации операции сложения двух объектов класса Matrix (двух матриц). Результатом сложения должна быть новая матрица.
 # Подсказка: сложение элементов матриц выполнять поэлементно — первый элемент первой строки первой матрицы складываем с первым элементом первой строки второй матрицы и т.д.
 # """
-# class Matrix:
-#
-#     def __init__(self, mat):
-#         self.mat = mat
-#
-#     def __str__(self):
-#         for w in self.mat:
-#             print(w)
-#
-#     def __add__(self, other):
-#         for i in range(len(self.mat)):
-#             for j in range(len(other.mat[i])):
-#                 self.mat[i][j] = self.mat[i][j] + other.mat[i][j]
-#         return Matrix.__str__(self)
-#
-#
-# matrix1 = Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
-# matrix2 = Matrix([[9, 8, 7], [6, 5, 4], [3, 2, 1]])
-# matrix1.__add__(matrix2)
+
+class Matrix:
+
+    def __init__(self, matr):
+        self.matr = matr
+
+    def __str__(self):
+        for w in self.matr:
+            print(w)
+
+    def __add__(self, other):
+        for i in range(len(self.matr)):
+            for j in range(len(other.matr[i])):
+                self.matr[i][j] = self.matr[i][j] + other.matr[i][j]
+        return Matrix.__str__(self)
+
+
+matrix1 = Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+matrix2 = Matrix([[9, 8, 7], [6, 5, 4], [3, 2, 1]])
+matrix1.__add__(matrix2)
 
 # Задача 34:  Винни-Пух попросил Вас посмотреть, есть ли в его стихах ритм. Поскольку разобраться в его кричалках не настолько просто, насколько легко он их придумывает,
 # Вам стоит написать программу. Винни-Пух считает, что ритм есть, если число слогов (т.е. число гласных букв) в каждой фразе стихотворения одинаковое.
@@ -164,18 +165,18 @@
 # **Ввод:** пара-ра-рам рам-пам-папам па-ра-па-да
 #     **Вывод:** Парам пам-пам
 
-# list = "пара-ра-рам рум-пом-папам па-ра-па-да"
-# list_p = []
-# for st_ng in list.split():
-#     count = 0
-#     for n in st_ng:
-#         if n in "аоуыэуeёиюя":
-#             count += 1
-#         list_p.append(count)
-# if len(list_p) == list_p.count(list_p[0]):
-#     print('Парам пам-пам')
-# else:
-#     print('Пам парам')
+list = "пара-ра-рам рум-пом-папам па-ра-па-да"
+list_p = []
+for st_ng in list.split():
+    count = 0
+    for n in st_ng:
+        if n in "аоуыэуeёиюя":
+            count += 1
+        list_p.append(count)
+if len(list_p) == list_p.count(list_p[0]):
+    print('Парам пам-пам')
+else:
+    print('Пам парам')
 
 # Задача 36: Напишите функцию print_operation_table(operation, num_rows=6, num_columns=6), которая принимает в качестве аргумента функцию, вычисляющую элемент по номеру строки и столбца.
 # Аргументы num_rows и num_columns указывают число строк и столбцов таблицы, которые должны быть распечатаны. Нумерация строк и столбцов идет с единицы (подумайте, почему не с нуля).
@@ -192,12 +193,13 @@
 # 4 8 12 16 20 24
 # 5 10 15 20 25 30
 # 6 12 18 24 30 36
-# def print_operation_table(operation, num_rows, num_сolumns):
-#     arr = [[operation(i, j) for i in range(1, num_сolumns + 1)] for j in range(1, num_rows + 1)]
-#     for i in arr:
-#         print(*[f"{x:>3}" for x in i])
-#
-#
-# line = int(input("Введите количество строк: "))
-# columns = int(input("Введите количество столбцов: "))
-# print_operation_table(lambda x, y: x * y, line, columns)
+
+def print_operation_table(operation, num_rows, num_сolumns):
+    arr = [[operation(i, j) for i in range(1, num_сolumns + 1)] for j in range(1, num_rows + 1)]
+    for i in arr:
+        print(*[f"{x:>3}" for x in i])
+
+
+line = int(input("Введите количество строк: "))
+columns = int(input("Введите количество столбцов: "))
+print_operation_table(lambda x, y: x * y, line, columns)
