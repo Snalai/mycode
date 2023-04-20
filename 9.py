@@ -34,59 +34,59 @@ print(int(b // 1000), "т")
 
 
 # 2
-# class Checkmi:
-#
-#     def __set__(self, instance, value):
-#         if type(value) is not str:
-#             raise ValueError("Имя, Фамилия или Должность не могут быть числом")
-#         instance.__dict__[self.my_vari] = value
-#
-#     def __set_name__(self, owner, my_vari):
-#         self.my_vari = my_vari
-#
-#
-# class Worker:
-#     name = Checkmi()
-#     surname = Checkmi()
-#     position = Checkmi()
-#
-#     def __init__(self, name: str, surname: str, position: str, wage: int, bonus: int):
-#         self.name = name
-#         self.surname = surname
-#         self.position = position
-#         self._income = {"wage": wage, "bonus": bonus}
-#
-#
-# class Position(Worker):
-#
-#     def get_full_name(self):
-#         print(f"Имя: {self.name}, Фамилия: {self.surname}")
-#
-#     def get_total_income(self):
-#         print(f"Общий доход равен: {sum(self._income.values())}")
-#
-#
-# a = Position("Джонотан", "Джостар", "Президент компании", 300000, 100000)
-# a.get_full_name()
-# print(f"Должность: {a.position}")
-# a.get_total_income()
+class Checkmi:
+
+    def __set__(self, instance, value):
+        if type(value) is not str:
+            raise ValueError("Имя, Фамилия или Должность не могут быть числом")
+        instance.__dict__[self.my_vari] = value
+
+    def __set_name__(self, owner, my_vari):
+        self.my_vari = my_vari
+
+
+class Worker:
+    name = Checkmi()
+    surname = Checkmi()
+    position = Checkmi()
+
+    def __init__(self, name: str, surname: str, position: str, wage: int, bonus: int):
+        self.name = name
+        self.surname = surname
+        self.position = position
+        self._income = {"wage": wage, "bonus": bonus}
+
+
+class Position(Worker):
+
+    def get_full_name(self):
+        print(f"Имя: {self.name}, Фамилия: {self.surname}")
+
+    def get_total_income(self):
+        print(f"Общий доход равен: {sum(self._income.values())}")
+
+
+a = Position("Джонотан", "Джостар", "Президент компании", 300000, 100000)
+a.get_full_name()
+print(f"Должность: {a.position}")
+a.get_total_income()
 #
 #
 # # 2) реализовать метакласс. позволяющий создавать всегда один и тот же объект класса (см. урок)
-# class TestMeta(type):
-#     exaple = None
-#
-#     def __call__(self):
-#         if self.exaple == None:
-#             self.exaple = super().__call__()
-#         return self.exaple
-#
-#
-# class MyClass(metaclass=TestMeta):
-#     pass
-#
-#
-# fir = MyClass()
-# seс = MyClass()
-#
-# print(fir is seс)
+class TestMeta(type):
+    exaple = None
+
+    def __call__(self):
+        if self.exaple == None:
+            self.exaple = super().__call__()
+        return self.exaple
+
+
+class MyClass(metaclass=TestMeta):
+    pass
+
+
+fir = MyClass()
+seс = MyClass()
+
+print(fir is seс)
