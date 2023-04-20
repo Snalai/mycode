@@ -32,7 +32,7 @@ a = Road(20, 5000, 25, 0.05)
 b = a.asf()
 print(int(b // 1000), "т")
 
-2
+# 2
 
 
 class Checkmi:
