@@ -11,9 +11,9 @@ for i in range(n):
 # значения которых принадлежат заданному диапазону (т.е. не меньше заданного минимума и не больше заданного максимума)
 #
 
-scr = [2, 4, 3, 8, -4, 5, 0, -9, 6, -10, 1, -5, 9, 2, 5]
-miny = int(input())
-maxy = int(input())
-for i in range(len(scr)):
-    if miny <= scr[i] and scr[i] <= maxy:
-        print(i)
+# scr = [2, 4, 3, 8, -4, 5, 0, -9, 6, -10, 1, -5, 9, 2, 5]
+# miny = int(input())
+# maxy = int(input())
+# for i in range(len(scr)):
+#     if miny <= scr[i] and scr[i] <= maxy:
+#         print(i)
